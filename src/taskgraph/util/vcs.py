@@ -416,7 +416,7 @@ class GitRepository(Repository):
     def _get_default_branch_from_remote_query(self):
         # This function requires network access to the repo
         remote_name = self.remote_name
-        output = self.run("ls-remote", "--symref", remote_name, "HEAD")  # type: ignore
+        output = self.run("ls-remote", "--symref", remote_name, "HEAD")
         matches = self._LS_REMOTE_PATTERN.search(output)
         if not matches:
             raise RuntimeError(
